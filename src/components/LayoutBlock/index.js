@@ -1,10 +1,10 @@
 import s from './style.module.css';
 
-const Layout = ({title,descr,colorBg, urlBg, hideBackground=false})=>{
-    const styleRoot = hideBackground ? {backgroundColor:colorBg}:{backgroundImage:`url(${urlBg})`}
-    console.log(styleRoot)
+const Layout = ({title,descr,colorBg, urlBg})=>{
+    const styleRoot = urlBg ? {backgroundImage:`url("${urlBg}")`}:{backgroundColor:colorBg};
+    console.log(colorBg)
     return(
-        <section className={s.root} style={styleRoot}>
+        <section className={s.root} style={styleRoot} >
             <div className={s.wrapper} >
                 <article>
                     <div className={s.title}>

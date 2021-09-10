@@ -9,7 +9,7 @@ function App() {
     <> 
       <Header title="This is title" descr ="This is Description!"/>
       <Layout title="" descr="" urlBg={ReactLogo} />
-      <Layout title="" descr="" colorBg="#e2e2e2" hideBackground/>
+      <Layout title="" descr="" colorBg="#e2e2e2" />
       <Layout title="" descr="" urlBg={ReactLogo} />
       <Footer />
     </>
