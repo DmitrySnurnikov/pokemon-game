@@ -4,8 +4,10 @@ import s from './style.module.css';
 
 const PokemonsCard = ({name,img,id,type,values})=>{
   const [isActive, setActive] = useState(false);
+  
   const handleClick =()=>{
-    setActive(true);
+    setActive(!isActive);
+    
   }
   return(
     <div className={s.root} onClick={handleClick}>
