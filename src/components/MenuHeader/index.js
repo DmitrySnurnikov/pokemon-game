@@ -1,24 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Menu from '../Menu'
 import NavBar from '../NavBar'
 
+
 const MenuHeader=()=> {
 
-    // const [isActive, setActive] = useState(false)
-    const test = null;
-    const handleClickButton = (page) =>{
-        console.log("fffff",page)
-        // test = page;
-    }
-
-    const handleMoveMenu = () =>{
-
+    const [isActive, setActive] = useState(false)
+    const handleClickButton = () =>{
+        setActive(!isActive);
     }
 
     return (
         <>
-        <Menu onMoveMenu={handleMoveMenu} active={test}/>
-        <NavBar onClickButton={handleClickButton} />
+        <Menu onClickButton={handleClickButton} remond={isActive}/>
+        <NavBar onClickButton={handleClickButton} remond={isActive} />
         </>
     )
 }

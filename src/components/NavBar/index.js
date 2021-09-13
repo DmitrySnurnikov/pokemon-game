@@ -2,14 +2,11 @@ import { useState } from 'react';
 import s from './style.module.css';
 import cn from 'classnames'
 
-const NavBar=({onClickButton})=> {
-
-    const[isActive, setActive]= useState(false)
+const NavBar=({onClickButton, remond})=> {
 
     const handleClick = () =>{
         
-        setActive(!isActive)
-        onClickButton && onClickButton(isActive);
+        onClickButton && onClickButton();
     }
     return (
         <nav className={s.root}>
@@ -17,7 +14,7 @@ const NavBar=({onClickButton})=> {
                 <p className={s.brand}>
                     LOGO
                 </p>
-            <a onClick={handleClick} className={cn(s.menuButton, {[s.active]:isActive})}>
+            <a onClick={handleClick} className={cn(s.menuButton, {[s.active]:remond})}>
             <span />
             </a>
             </div>

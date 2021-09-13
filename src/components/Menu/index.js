@@ -2,16 +2,10 @@ import s from './style.module.css';
 import cn from 'classnames'
 import {useState} from 'react'
 
-const Menu=()=> {
-
-const [isActive, setActive] = useState(true)
-
-const handleClick = () =>{
-    setActive(!isActive)
-}
+const Menu=({onClickButton, remond})=> {
 
     return (
-        <div onClick={handleClick} className={cn(s.menuContainer, {[s.active]:isActive})} >
+        <div className={cn(s.menuContainer, {[s.active]:remond})} >
             <div className={s.overlay} />
                 <div className={s.menuItems}>
                     <ul>
