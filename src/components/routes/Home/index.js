@@ -7,22 +7,24 @@ import ReactLogo from '../../../assets/bg1.jpg';
 
 import PokemonsCard from '../../../components/PokemonsCard';
 import POKEMONS from '../../../components/Pokemons';
+import MenuHeader from '../../MenuHeader';
 
 
 function HomePage({onChangePage}) {
-    
+     
     const handleClickButton = (page)=>{
-        console.log("HomePage");
         onChangePage && onChangePage(page);
     }
   
   return (
     <>
+        <MenuHeader />
+        
       <Header 
 
       title="Pokemon Game" 
       descr ="This is Description!"
-          onClickButton={handleClickButton}
+        onClickButton={handleClickButton}
       />
 
       <Layout

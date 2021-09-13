@@ -1,11 +1,14 @@
-const GamePage=()=>{
-    const handleClick=({onChangePage})=>{
+const GamePage=({onChangePage})=>{
+
+    const handleClick=()=>{
         onChangePage && onChangePage('app');
-        console.log("asfdas", onChangePage)
     }
+
     return(
         <>
-        <div>This is Game Page</div>
+        <div>This is Game Page
+        
+        </div>
         <button onClick={handleClick}>
             Back To Mine
         </button>
