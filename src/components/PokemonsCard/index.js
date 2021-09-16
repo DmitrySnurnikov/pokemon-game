@@ -4,13 +4,14 @@ import s from './style.module.css';
 
 import cn from 'classnames'
 
-const PokemonsCard = ({name,img,id,type,values})=>{
+const PokemonsCard = ({name,img,id,type,values,onClickPokemon})=>{
   const [isActive, setActive] = useState(false);
   
   const handleClick =()=>{
-    setActive(!isActive);
+    onClickPokemon && onClickPokemon(id);
     
   }
+
   return(
     <div className={s.root} onClick={handleClick}>
 
