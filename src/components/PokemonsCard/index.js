@@ -11,6 +11,10 @@ const PokemonsCard = ({name,img,id,type,values})=>{
     setActive(!isActive);
     
   }
+
+
+
+  
   return(
     <div className={s.root} onClick={handleClick}>
 
