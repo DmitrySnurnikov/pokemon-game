@@ -1,22 +1,21 @@
-import { useState } from 'react';
 import s from './style.module.css';
 import cn from 'classnames'
 
-const NavBar=({onClickButton, remond})=> {
+const NavBar=({onClickButton, remond, bgActive=false})=> {
 
-    const handleClick = () =>{
-        
-        onClickButton && onClickButton();
-    }
     return (
-        <nav className={s.root}>
+        <nav id = {s.navbar}
+         className={cn({[s.bgActive]:bgActive
+        })}>
             <div className={s.navWrapper}>
                 <p className={s.brand}>
                     LOGO
                 </p>
-            <a onClick={handleClick} className={cn(s.menuButton, {[s.active]:remond})}>
-            <span />
-            </a>
+                <div 
+                    onClick={onClickButton} 
+                    className={cn(s.menuButton, {[s.active]:remond})}>
+                <span />
+                </div>
             </div>
         </nav>
     )

@@ -17,9 +17,7 @@ function HomePage({onChangePage}) {
     }
   
   return (
-    <>
-        <MenuHeader />
-        
+    <>        
       <Header 
 
       title="Pokemon Game" 
