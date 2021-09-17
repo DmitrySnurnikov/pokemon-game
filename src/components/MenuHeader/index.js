@@ -3,17 +3,18 @@ import Menu from '../Menu'
 import NavBar from '../NavBar'
 
 
-const MenuHeader=()=> {
+const MenuHeader=({bgActive})=> {
 
-    const [isActive, setActive] = useState(false)
+    const [isActive, setActive] = useState(false);
+    
     const handleClickButton = () =>{
-        setActive(!isActive);
+        setActive(prevState => !prevState);
     }
 
     return (
         <>
         <Menu onClickButton={handleClickButton} remond={isActive}/>
-        <NavBar onClickButton={handleClickButton} remond={isActive} />
+        <NavBar onClickButton={handleClickButton} remond={isActive} bgActive={bgActive}/>
         </>
     )
 }

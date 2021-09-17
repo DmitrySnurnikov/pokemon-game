@@ -5,9 +5,6 @@ import Footer from '../../../components/FooterBlock';
 
 import ReactLogo from '../../../assets/bg1.jpg';
 
-import PokemonsCard from '../../../components/PokemonsCard';
-import POKEMONS from '../../../components/Pokemons';
-import MenuHeader from '../../MenuHeader';
 
 
 function HomePage({onChangePage}) {
@@ -17,9 +14,7 @@ function HomePage({onChangePage}) {
     }
   
   return (
-    <>
-        <MenuHeader />
-        
+    <>        
       <Header 
 
       title="Pokemon Game" 
@@ -37,13 +32,6 @@ function HomePage({onChangePage}) {
 
       </Layout>
 
-      <Layout id="cards" title="Cards" colorBg="#e2e2e2">
-        <div className="flex">
-          {
-            POKEMONS.map( item => <PokemonsCard key={item.id} id={item.id} name={item.name} img={item.img} type={item.type} values={item.values} />)
-          }
-        </div>
-      </Layout>
 
       <Layout id="about" title="Full Rules"  urlBg={ReactLogo}>
         <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.</p>
