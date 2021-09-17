@@ -9,9 +9,36 @@ import cn from 'classnames'
 import About from './components/routes/About';
 import Contact from './components/routes/Contact';
 import NotFound from './components/routes/NotFound';
+import firebase from 'firebase/compat';
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBS4y6lftrcunbq_GUoevaFncAe1YOGmQ0",
+
+  authDomain: "pokemon-game-40ebc.firebaseapp.com",
+
+  databaseURL: "https://pokemon-game-40ebc-default-rtdb.firebaseio.com",
+
+  projectId: "pokemon-game-40ebc",
+
+  storageBucket: "pokemon-game-40ebc.appspot.com",
+
+  messagingSenderId: "715582202920",
+
+  appId: "1:715582202920:web:c76c8e3f928769cc78811d"
+
+};
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+database.ref('pokemons').once('value', (snapshot)=>{
+  console.log("snapshot", snapshot.val());
+})
+
 
 const App=()=> {
 const match = useRouteMatch('/')
+
 
 return(
   <Switch>
