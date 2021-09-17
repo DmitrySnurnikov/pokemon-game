@@ -23,7 +23,6 @@ return(
         })}>
           <Switch>
             <Route path="/" exact component={HomePage}/>
-            {/* <Route path="/home" component={HomePage}/> */}
             <Route path="/game" component={GamePage}/>
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
