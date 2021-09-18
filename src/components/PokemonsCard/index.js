@@ -12,6 +12,12 @@ const PokemonsCard = ({name,img,id,type,values,onClickPokemon})=>{
     
   }
 
+<<<<<<< HEAD
+=======
+
+
+  
+>>>>>>> homework=5
   return(
     <div className={s.root} onClick={handleClick}>
 
