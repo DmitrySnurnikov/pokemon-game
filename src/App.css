@@ -1,9 +1,4 @@
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
+
 
 .App-logo {
   height: 40vmin;
