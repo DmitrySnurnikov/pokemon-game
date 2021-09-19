@@ -6,9 +6,6 @@ import Layout from '../../../components/LayoutBlock';
 import ReactLogo from '../../../assets/bg1.jpg';
 
 
-
-
-
 function HomePage({onChangePage}) {
      
     const handleClickButton = (page)=>{

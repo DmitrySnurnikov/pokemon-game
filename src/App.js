@@ -10,6 +10,8 @@ import About from './components/routes/About';
 import Contact from './components/routes/Contact';
 import NotFound from './components/routes/NotFound';
 
+
+
 const App=()=> {
 const match = useRouteMatch('/')
 
@@ -23,7 +25,6 @@ return(
         })}>
           <Switch>
             <Route path="/" exact component={HomePage}/>
-            {/* <Route path="/home" component={HomePage}/> */}
             <Route path="/game" component={GamePage}/>
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

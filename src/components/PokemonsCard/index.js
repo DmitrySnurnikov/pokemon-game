@@ -1,23 +1,17 @@
 import CardBackSize from './assets/card-back-side.jpg';
-import {useState} from 'react'
+
 import s from './style.module.css';
 
 import cn from 'classnames'
 
-const PokemonsCard = ({name,img,id,type,values,onClickPokemon})=>{
-  const [isActive, setActive] = useState(false);
-  
+
+const PokemonsCard = ({name,img,id,type,values,isActive, onClickPokemon, objID})=>{
+
   const handleClick =()=>{
-    onClickPokemon && onClickPokemon(id);
+    onClickPokemon && onClickPokemon(id, objID);
     
   }
 
-<<<<<<< HEAD
-=======
-
-
-  
->>>>>>> homework=5
   return(
     <div className={s.root} onClick={handleClick}>
 
