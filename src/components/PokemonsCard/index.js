@@ -5,10 +5,12 @@ import s from './style.module.css';
 import cn from 'classnames'
 
 
+
 const PokemonsCard = ({name,img,id,type,values,isActive, onClickPokemon, objID})=>{
 
   const handleClick =()=>{
     onClickPokemon && onClickPokemon(id, objID);
+
     
   }
 

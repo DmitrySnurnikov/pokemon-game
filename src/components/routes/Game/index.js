@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Layout from "../../LayoutBlock";
 import PokemonsCard from "../../PokemonsCard";
@@ -35,9 +36,11 @@ const GamePage=()=>{
       const data = POKEMONS;
       const newKey = database.ref().child('pokemons').push().key;
       database.ref('pokemons/' + newKey).set(data[0]);
+
     }
     return(
         <div className={s.root}>
+
         <button className={s.button} onClick={AddNewPokemon} > ADD NEW POKEMON </button>
         <Layout id="cards" title="Cards" colorBg="#e2e2e2">
         <div className={s.flex}>
@@ -52,6 +55,7 @@ const GamePage=()=>{
                 type={type} 
                 values={values}
                 isActive={active} 
+
                 onClickPokemon={handleClick}/>)
           }
         </div>
