@@ -1,67 +1,43 @@
 
-import { useState, useEffect } from "react";
-import Layout from "../../LayoutBlock";
-import PokemonsCard from "../../PokemonsCard";
-import s from './style.module.css'
-import database from "../../../service/firebase";
-import POKEMONS from '../../Pokemons'
+import { Switch, useRouteMatch, Route } from "react-router-dom";
+import { useState } from "react";
+import StartPage from "./routes/Start";
+import BoardPage from "./routes/Board";
+import FinishPage from './routes/Finish';
+import { PokemonContext } from "../../../context/pokemonContext";
 
-const GamePage=()=>{
-    const [pokemons, setPokemons] =  useState({});
-    const handleClick = (id, objID, isActive)=>{
-      setPokemons(prevState => {
-        return Object.entries(prevState).reduce((acc, item) => {
-            const pokemon = {...item[1]};
-            if (pokemon.id === id) {
-                pokemon.active = !pokemon.active ;
-                database.ref('pokemons/'+ objID).update({
-                  // ...pokemons[objID],
-                  active: !isActive,
-                });
-            };
-            acc[item[0]] = pokemon;
-            return acc;
-        }, {});
-      });
-      
-    };
 
-    useEffect(()=>{
-      database.ref('pokemons').once('value',(snapshot)=>{
-        setPokemons(snapshot.val());
-      });
-    }, [pokemons]);
+const GamePage = () => {
+const [selectedPokemons, setSelectedPokemons] = useState({});
 
-    const AddNewPokemon = ()=>{
-      const data = POKEMONS;
-      const newKey = database.ref().child('pokemons').push().key;
-      database.ref('pokemons/' + newKey).set(data[0]);
+  const match = useRouteMatch();
 
-    }
-    return(
-        <div className={s.root}>
 
-        <button className={s.button} onClick={AddNewPokemon} > ADD NEW POKEMON </button>
-        <Layout id="cards" title="Cards" colorBg="#e2e2e2">
-        <div className={s.flex}>
-          {
-            Object.entries(pokemons).map(([key,{name,img,id,type,values,active}]) => 
-                <PokemonsCard
-                objID={key} 
-                key={key} 
-                id={id} 
-                name={name} 
-                img={img} 
-                type={type} 
-                values={values}
-                isActive={active} 
+  const handleSelectedPokemons = (key, pokemon)=>{
+    setSelectedPokemons(prevState=>{
+      if(prevState[key]){
+        const copyState = {...prevState};
+        delete copyState[key];
+        return copyState;
+      }
+      return{
+        ...prevState,
+        [key]: pokemon,
+      }
+    })
+  }
+  return (
+    <PokemonContext.Provider value={{
+      pokemons: selectedPokemons,
+      onSelectedPokemons: handleSelectedPokemons
+    }}>
+      <Switch>
+          <Route path={`${match.path}/`} exact component={StartPage} />
+          <Route path={`${match.path}/board`} component={BoardPage} />
+          <Route path={`${match.path}/finish`} component={FinishPage} />
+      </Switch>
+    </PokemonContext.Provider>
+  );
+};
 
-                onClickPokemon={handleClick}/>)
-          }
-        </div>
-      </Layout>
-
-        </div>
-    )
-}
 export default GamePage;
